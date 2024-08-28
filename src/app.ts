@@ -1,6 +1,6 @@
 import fastify from 'fastify'
-import { dateTimeApi } from './dateTimeApi'
+import { dateTimeApi } from './routes/dateTimeApi'
 
 export const app = fastify()
 
-app.get('/', dateTimeApi)
+app.register(dateTimeApi, { prefix: '/api' })
