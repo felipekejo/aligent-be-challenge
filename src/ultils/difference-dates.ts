@@ -1,7 +1,7 @@
-export function differenceDates(date1: string, date2: string): number {
-  const date1Parsed = Date.parse(date1)
-  const date2Parsed = Date.parse(date2)
+export function differenceDates(firstDate: string, secondDate: string): number {
+  const firstDateParsed = Date.parse(firstDate)
+  const secondDateParsed = Date.parse(secondDate)
 
-  const difference = date2Parsed - date1Parsed
+  const difference = secondDateParsed - firstDateParsed
   return difference
 }
