@@ -1,0 +1,26 @@
+{
+  "name": "aligent-be-challenge",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/felipekejo/aligent-be-challenge.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/felipekejo/aligent-be-challenge/issues"
+  },
+  "homepage": "https://github.com/felipekejo/aligent-be-challenge#readme",
+  "devDependencies": {
+    "typescript": "^5.5.4"
+  },
+  "dependencies": {
+    "fastify": "^4.28.1"
+  }
+}
