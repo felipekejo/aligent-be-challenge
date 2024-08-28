@@ -1,5 +1,5 @@
 import fastify from 'fastify'
-import { dateTimeApi } from './api'
+import { dateTimeApi } from './dateTimeApi'
 
 export const app = fastify()
 

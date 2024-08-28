@@ -6,7 +6,9 @@
   "scripts": {
     "start:dev": "tsx watch src/server.ts",
     "start": "node build/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint src --ext .ts --fix",
+    "test": "vitest",
+    "build": "tsup src --out-dir build"
   },
   "repository": {
     "type": "git",
@@ -26,6 +28,7 @@
   },
   "dependencies": {
     "fastify": "^4.28.1",
+    "tsup": "^8.2.4",
     "tsx": "^4.19.0",
     "zod": "^3.23.8"
   }

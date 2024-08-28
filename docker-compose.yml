@@ -1,0 +1,10 @@
+version : '3'
+
+services:
+  aligent-be-challenge:
+    build: 
+      context: .
+    container_name: aligent-be-challenge
+    ports:
+      - 3333:3333
+    
