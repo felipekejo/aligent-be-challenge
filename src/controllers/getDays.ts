@@ -18,11 +18,11 @@ export async function getDays(
   )
   
   const differenceMilliseconds = differenceDates(firstDate, secondDate)
-  const difference = differenceMilliseconds / (1000 * 60 * 60 * 24)
+  const differenceInCompletedDays = Math.floor(differenceMilliseconds / (1000 * 60 * 60 * 24))
   if (unit !== 'default') {
-    const differenceInDifferentUnit = changeUnit(difference, 'days', unit)
+    const differenceInDifferentUnit = changeUnit(differenceInCompletedDays, 'days', unit)
     return reply.status(200).send({ difference: differenceInDifferentUnit })
   }
 
-  return reply.status(200).send({ difference })
+  return reply.status(200).send({ difference:differenceInCompletedDays })
 }

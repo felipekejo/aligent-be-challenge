@@ -18,12 +18,12 @@ export async function getWeeks(
   )
   const differenceMilliseconds = differenceDates(firstDate, secondDate)
 
-  const difference = Math.floor(differenceMilliseconds / (1000 * 60 * 60 * 24 * 7))
+  const differenceInCompletedWeeks = Math.floor(differenceMilliseconds / (1000 * 60 * 60 * 24 * 7)) 
 
   if (unit !== 'default') {
-    const differenceInDifferentUnit = changeUnit(difference, 'days', unit)
+    const differenceInDifferentUnit = changeUnit(differenceInCompletedWeeks, 'weeks', unit)
     return reply.status(200).send({ difference: differenceInDifferentUnit })
   }
 
-  return reply.status(200).send({ difference })
+  return reply.status(200).send({ difference:differenceInCompletedWeeks })
 }
