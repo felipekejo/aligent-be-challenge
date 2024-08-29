@@ -17,15 +17,15 @@ let differenceMilliseconds = 0
 
   switch (finalUnit) {
     case 'seconds':
-      return differenceMilliseconds / 1000 // Return difference in seconds
+      return Math.floor(differenceMilliseconds / 1000 )// Return difference in seconds
     case 'minutes':
-      return differenceMilliseconds / (1000 * 60) // Return difference in minutes
+      return Math.floor(differenceMilliseconds / (1000 * 60)) // Return difference in minutes
     case 'hours':
-      return differenceMilliseconds / (1000 * 60 * 60) // Return difference in hours
-    case 'year':
-      return differenceMilliseconds / (1000 * 60 * 60 * 24 * 365) // Return difference in a year
+      return Math.floor(differenceMilliseconds / (1000 * 60 * 60) )// Return difference in hours
+    case 'years':
+      return Math.floor(differenceMilliseconds / (1000 * 60 * 60 * 24 * 365) )// Return difference in a year
     default:
-      return differenceMilliseconds / (1000 * 60 * 60 * 24); // Fallback to days if unit is unrecognized
+      return Math.floor(differenceMilliseconds / (1000 * 60 * 60 * 24)); // Fallback to days if unit is unrecognized
   }
 
 }

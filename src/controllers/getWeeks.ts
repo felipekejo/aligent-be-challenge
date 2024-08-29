@@ -1,16 +1,17 @@
 import { FastifyReply, FastifyRequest } from "fastify";
 import { z } from "zod";
-import { changeUnit } from "../ultils/change-unit";
-import { differenceDates } from "../ultils/difference-dates";
+import { changeUnit } from "../utils/change-unit";
+import { differenceDates } from "../utils/difference-dates";
 
 export async function getWeeks(
   request: FastifyRequest,
   reply: FastifyReply,
 ) {
+  console.log(request.body)
   const getWeeksParamsSchema = z.object({
     firstDate: z.string().datetime({ offset: true }),
     secondDate: z.string().datetime({ offset: true }),
-    unit: z.enum(['seconds', 'minutes', 'hours', 'year','default']).default('default'),
+    unit: z.enum(['seconds', 'minutes', 'hours', 'years','default']).default('default'),
   })
   const { firstDate, secondDate, unit } = getWeeksParamsSchema.parse(
     request.body,
