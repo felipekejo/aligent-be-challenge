@@ -4,9 +4,7 @@ import { changeUnit } from '../ultils/change-unit';
 import { differenceDates } from '../ultils/difference-dates';
 
 export async function getDays(
-  request: FastifyRequest<{
-    Params: { firstDate: string; secondDate: string; unit: string }
-  }>,
+  request: FastifyRequest,
   reply: FastifyReply,
 ) {
   console.log(request.body)
