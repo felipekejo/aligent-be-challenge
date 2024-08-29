@@ -1,19 +1,9 @@
 import { FastifyInstance, FastifyReply, FastifyRequest } from 'fastify'
 import { z } from 'zod'
+import { getDays } from '../controllers/getDays'
 
 export async function dateTimeApi(app: FastifyInstance) {
-  app.get('/days', async (request: FastifyRequest, reply: FastifyReply) => {
-    const dateTimeApiBodySchema = z.object({
-      firstDate: z.string().datetime(),
-      secondDate: z.string().datetime(),
-    })
-
-    const { firstDate, secondDate, timeZone } = dateTimeApiBodySchema.parse(
-      request.params,
-    )
-
-    return reply.status(200).send()
-  })
+  app.post('/days', getDays)
   app.get('/weekdays', async (request: FastifyRequest, reply: FastifyReply) => {
     const dateTimeApiBodySchema = z.object({
       firstDate: z.string().datetime(),
