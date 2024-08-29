@@ -6,11 +6,10 @@ export async function dateTimeApi(app: FastifyInstance) {
     const dateTimeApiBodySchema = z.object({
       firstDate: z.string().datetime(),
       secondDate: z.string().datetime(),
-      timeZone: z.string(),
     })
 
     const { firstDate, secondDate, timeZone } = dateTimeApiBodySchema.parse(
-      request.body,
+      request.params,
     )
 
     return reply.status(200).send()
@@ -19,7 +18,6 @@ export async function dateTimeApi(app: FastifyInstance) {
     const dateTimeApiBodySchema = z.object({
       firstDate: z.string().datetime(),
       secondDate: z.string().datetime(),
-      timeZone: z.string(),
     })
 
     const { firstDate, secondDate, timeZone } = dateTimeApiBodySchema.parse(
@@ -32,7 +30,6 @@ export async function dateTimeApi(app: FastifyInstance) {
     const dateTimeApiBodySchema = z.object({
       firstDate: z.string().datetime(),
       secondDate: z.string().datetime(),
-      timeZone: z.string(),
     })
 
     const { firstDate, secondDate, timeZone } = dateTimeApiBodySchema.parse(
