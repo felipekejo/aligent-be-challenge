@@ -6,5 +6,5 @@ import { getWeeks } from '../controllers/getWeeks'
 export async function dateTimeApi(app: FastifyInstance) {
   app.post('/days', getDays)
   app.post('/weekdays', getWeekDays)
-  app.post('/weeks',getWeeks)
+  app.post('/weeks', getWeeks)
 }

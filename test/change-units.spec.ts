@@ -1,52 +1,54 @@
 import { describe, expect, it } from 'vitest'
-import { changeUnit } from '../src/utils/change-unit'
+import { differenceDates } from '../src/utils/difference-dates'
 
+describe('Difference dates function', () => {
+  it('should return difference in milliseconds', async () => {
+    const result = differenceDates(
+      '2024-03-22T00:00:00.123-03:00',
+      '2024-03-23T00:00:00.123-03:00',
+      'default',
+    )
 
-describe("Change Unit function", ()=>{
-  it("should change unit from days to seconds", async()=>{
-    const result = changeUnit(1, 'days', 'seconds')
-
-    expect(result).toBe(86400)
+    expect(result).toBe(1000 * 60 * 60 * 24)
   })
 
-  it("should change unit from weeks to seconds", async()=>{
-    const result = changeUnit(1, 'weeks', 'seconds')
+  it('should return difference in seconds', async () => {
+    const result = differenceDates(
+      '2024-03-22T00:00:00.123-03:00',
+      '2024-03-23T00:00:00.123-03:00',
+      'seconds',
+    )
 
-    expect(result).toBe(604800)
+    expect(result).toBe(60 * 60 * 24)
   })
-  it("should change unit from days to minutes", async()=>{
-    const result = changeUnit(1, 'days', 'minutes')
 
-    expect(result).toBe(1440)
+  it('should return difference in minutes', async () => {
+    const result = differenceDates(
+      '2024-03-22T00:00:00.123-03:00',
+      '2024-03-23T00:00:00.123-03:00',
+      'minutes',
+    )
+
+    expect(result).toBe(60 * 24)
   })
 
-  it("should change unit from weeks to minutes", async()=>{
-    const result = changeUnit(1, 'weeks', 'minutes')
-
-    expect(result).toBe(10080)
-  })
-  it("should change unit from days to hours", async()=>{
-    const result = changeUnit(1, 'days', 'hours')
+  it('should return difference in hours', async () => {
+    const result = differenceDates(
+      '2024-03-22T00:00:00.123-03:00',
+      '2024-03-23T00:00:00.123-03:00',
+      'hours',
+    )
 
     expect(result).toBe(24)
   })
 
-  it("should change unit from weeks to hours", async()=>{
-    const result = changeUnit(1, 'weeks', 'hours')
+  it('should return difference in years', async () => {
+    const result = differenceDates(
+      '1987-03-23T00:00:00.123-03:00',
+      '2024-03-22T00:00:00.123-03:00',
+      'years',
+    )
 
-    expect(result).toBe(168)
+    expect(result).toBe(36)
   })
-  it("should change unit from days to years", async()=>{
-    const result = changeUnit(366, 'days', 'years')
-
-    expect(result).toBe(1)
-  })
-
-  it("should change unit from weeks to years", async()=>{
-    const result = changeUnit(53, 'weeks', 'years')
-
-    expect(result).toBe(1)
-  })
-
-
 })
