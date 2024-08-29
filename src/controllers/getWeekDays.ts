@@ -1,6 +1,5 @@
 import { FastifyReply, FastifyRequest } from "fastify";
 import { z } from "zod";
-import { changeUnit } from "../utils/change-unit";
 import { differenceDates } from "../utils/difference-dates";
 
 export async function getWeekDays(
@@ -16,9 +15,17 @@ export async function getWeekDays(
   const { firstDate, secondDate, unit } = getWeekDaysParamsSchema.parse(
     request.body,
   )
-  const differenceMilliseconds = differenceDates(firstDate, secondDate)
+if(firstDate>secondDate){
+    return reply.status(400).send({ message: 'The first date must be older than the second date' })
+}
 
-  const differenceInCompletedDays = Math.floor(differenceMilliseconds / (1000 * 60 * 60 * 24 )) 
+  const difference = differenceDates(firstDate, secondDate, unit)
+
+  if (unit !== 'default') {
+    
+    return reply.status(200).send({ difference })
+  }
+  const differenceInCompletedDays = Math.floor(difference / (1000 * 60 * 60 * 24 )) 
 
   const startDay = new Date(firstDate).getDay() // 0 = Sunday, 1 = Monday, ..., 6 = Saturday)
 
@@ -31,12 +38,5 @@ export async function getWeekDays(
     differenceInCompletedWeekDays++
    }
   }
-
-
-  if (unit !== 'default') {
-    const differenceInDifferentUnit = changeUnit(differenceInCompletedWeekDays, 'days', unit)
-    return reply.status(200).send({ difference: differenceInDifferentUnit })
-  }
-
   return reply.status(200).send({ difference:differenceInCompletedWeekDays })
 }

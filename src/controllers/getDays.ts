@@ -1,6 +1,5 @@
 import { FastifyReply, FastifyRequest } from 'fastify';
 import { z } from 'zod';
-import { changeUnit } from '../utils/change-unit';
 import { differenceDates } from '../utils/difference-dates';
 
 export async function getDays(
@@ -16,13 +15,17 @@ export async function getDays(
   const { firstDate, secondDate, unit } = getDaysParamsSchema.parse(
     request.body,
   )
+  if(firstDate>secondDate){
+    return reply.status(400).send({ message: 'The first date must be older than the second date' })
+}
+  const difference = differenceDates(firstDate, secondDate,unit)
   
-  const differenceMilliseconds = differenceDates(firstDate, secondDate)
-  const differenceInCompletedDays = Math.floor(differenceMilliseconds / (1000 * 60 * 60 * 24))
-  if (unit !== 'default') {
-    const differenceInDifferentUnit = changeUnit(differenceInCompletedDays, 'days', unit)
-    return reply.status(200).send({ difference: differenceInDifferentUnit })
+  if (unit !== 'default') {// If the unit is not default, return the converted difference that was returned from the differenceDates function
+
+    return reply.status(200).send({ difference })
   }
+  // If the unit is default, convert the difference to days
+  const differenceInCompletedDays = Math.floor(difference / (1000 * 60 * 60 * 24))
 
   return reply.status(200).send({ difference:differenceInCompletedDays })
 }
