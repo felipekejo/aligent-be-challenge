@@ -281,6 +281,8 @@ return isEndDateEarlierInYear ? yearDiff - 1 : yearDiff;
 ```
 This approach ensures a more accurate representation of the number of complete years between two dates.
 
+7. Manual Date Handling: The decision to manually handle date calculations was made to demonstrate the process. However, it is acknowledged that using dedicated date manipulation libraries, such as moment.js, date-fns, or luxon, would enhance productivity and provide more robust solutions for date operations.
+
 #### Libraries
 
 - Fastify: The application uses Fastify as the web framework to build the API endpoints due to its high performance and low overhead.
@@ -290,3 +292,5 @@ This approach ensures a more accurate representation of the number of complete y
       - Plugin System: Fastify has a powerful plugin system that promotes modularity and code reusability. Express supports middleware, but Fastify’s plugin system is more structured and allows for better encapsulation of functionality.
       - Ecosystem and Community: Express has been around longer and has a larger ecosystem and community. It is widely used and well-documented, which can be advantageous for finding resources and support. Fastify, while newer, has a growing community and is becoming increasingly popular for high-performance applications.
 - Zod: Zod is used for schema validation of request payloads, ensuring that the input data adheres to the expected format and types.
+- Vitest: For testing, Vitest is used due to its fast and reliable test execution capabilities. Vitest is a modern testing framework that integrates well with Vite, providing a streamlined testing experience with features like snapshot testing, mocking, and parallel test execution. It is chosen for its performance benefits and ease of use in TypeScript environments.
+
