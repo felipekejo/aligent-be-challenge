@@ -6,7 +6,6 @@ export async function getWeekDays(
   request: FastifyRequest,
   reply: FastifyReply,
 ) {
-  console.log(request.body)
   const getWeekDaysParamsSchema = z.object({
     firstDate: z.string().datetime({ offset: true }),
     secondDate: z.string().datetime({ offset: true }),

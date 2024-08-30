@@ -18,6 +18,8 @@ COPY --from=build /usr/src/app/build ./build
 COPY --from=build /usr/src/app/node_modules ./node_modules
 COPY --from=build /usr/src/app/package.json ./package.json
 
-EXPOSE 3333
+ARG 3333
+
+EXPOSE ${PORT}
 
 CMD ["npm", "run", "start"]

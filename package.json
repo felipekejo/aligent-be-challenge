@@ -23,11 +23,14 @@
   "homepage": "https://github.com/felipekejo/aligent-be-challenge#readme",
   "devDependencies": {
     "@rocketseat/eslint-config": "^2.2.2",
+    "@types/supertest": "^6.0.2",
     "eslit": "^6.0.0",
+    "supertest": "^7.0.0",
     "typescript": "^5.5.4",
     "vitest": "^2.0.5"
   },
   "dependencies": {
+    "dotenv": "^16.4.5",
     "fastify": "^4.28.1",
     "tsup": "^8.2.4",
     "tsx": "^4.19.0",

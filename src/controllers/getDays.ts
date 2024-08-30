@@ -3,7 +3,6 @@ import { z } from 'zod'
 import { differenceDates } from '../utils/difference-dates'
 
 export async function getDays(request: FastifyRequest, reply: FastifyReply) {
-  console.log(request.body)
   const getDaysParamsSchema = z.object({
     firstDate: z.string().datetime({ offset: true }),
     secondDate: z.string().datetime({ offset: true }),
