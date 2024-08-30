@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project provides a utility for calculating the number of weekdays between two dates or over a period of days, starting from a specific day of the week. It is designed to be lightweight and does not rely on external libraries for date manipulation.
+This Web API provides functionality for calculating differences between two datetime parameters and converting these differences into various units. It also supports timezone specifications for accurate comparisons across different time zones.
 
 ## Features
 
@@ -40,7 +40,7 @@ This project provides a utility for calculating the number of weekdays between t
 4. Start the application:
 
    ```bash
-   npm run start
+   npm run start:dev
 
 By default, the application will run on http://localhost:3333. You can change the port by setting the PORT environment variable.
 
@@ -280,3 +280,11 @@ const isEndDateEarlierInYear =
 return isEndDateEarlierInYear ? yearDiff - 1 : yearDiff;
 ```
 This approach ensures a more accurate representation of the number of complete years between two dates.
+
+7. Fastify: The application uses Fastify as the web framework to build the API endpoints due to its high performance and low overhead.
+- Fastify vs. Express: Express is one of the most popular API frameworks for Node.js. It's been around since 2010 and has a large community of developers. Express is designed to be flexible and easy to use, with a simple and intuitive API. But I decided to use Fastify because of these reasons: 
+   - Performance: Fastify is known for its high performance and low overhead, offering better speed and efficiency compared to Express. It’s designed to handle a large number of requests with minimal latency.
+   - Built-in Features: Fastify comes with built-in support for schema-based validation (using JSON Schema), logging, and content type parsing, which can reduce the need for additional middleware. Express requires external middleware to achieve similar functionality.
+   - Plugin System: Fastify has a powerful plugin system that promotes modularity and code reusability. Express supports middleware, but Fastify’s plugin system is more structured and allows for better encapsulation of functionality.
+   - Ecosystem and Community: Express has been around longer and has a larger ecosystem and community. It is widely used and well-documented, which can be advantageous for finding resources and support. Fastify, while newer, has a growing community and is becoming increasingly popular for high-performance applications.
+8. Zod: Zod is used for schema validation of request payloads, ensuring that the input data adheres to the expected format and types.
