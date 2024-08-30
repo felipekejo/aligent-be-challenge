@@ -281,10 +281,12 @@ return isEndDateEarlierInYear ? yearDiff - 1 : yearDiff;
 ```
 This approach ensures a more accurate representation of the number of complete years between two dates.
 
-7. Fastify: The application uses Fastify as the web framework to build the API endpoints due to its high performance and low overhead.
-- Fastify vs. Express: Express is one of the most popular API frameworks for Node.js. It's been around since 2010 and has a large community of developers. Express is designed to be flexible and easy to use, with a simple and intuitive API. But I decided to use Fastify because of these reasons: 
-   - Performance: Fastify is known for its high performance and low overhead, offering better speed and efficiency compared to Express. It’s designed to handle a large number of requests with minimal latency.
-   - Built-in Features: Fastify comes with built-in support for schema-based validation (using JSON Schema), logging, and content type parsing, which can reduce the need for additional middleware. Express requires external middleware to achieve similar functionality.
-   - Plugin System: Fastify has a powerful plugin system that promotes modularity and code reusability. Express supports middleware, but Fastify’s plugin system is more structured and allows for better encapsulation of functionality.
-   - Ecosystem and Community: Express has been around longer and has a larger ecosystem and community. It is widely used and well-documented, which can be advantageous for finding resources and support. Fastify, while newer, has a growing community and is becoming increasingly popular for high-performance applications.
-8. Zod: Zod is used for schema validation of request payloads, ensuring that the input data adheres to the expected format and types.
+#### Libraries
+
+- Fastify: The application uses Fastify as the web framework to build the API endpoints due to its high performance and low overhead.
+   - Fastify vs. Express: Express is one of the most popular API frameworks for Node.js. It's been around since 2010 and has a large community of developers. Express is designed to be flexible and easy to use, with a simple and intuitive API. But I decided to use Fastify because of these reasons: 
+      - Performance: Fastify is known for its high performance and low overhead, offering better speed and efficiency compared to Express. It’s designed to handle a large number of requests with minimal latency.
+      - Built-in Features: Fastify comes with built-in support for schema-based validation (using JSON Schema), logging, and content type parsing, which can reduce the need for additional middleware. Express requires external middleware to achieve similar functionality.
+      - Plugin System: Fastify has a powerful plugin system that promotes modularity and code reusability. Express supports middleware, but Fastify’s plugin system is more structured and allows for better encapsulation of functionality.
+      - Ecosystem and Community: Express has been around longer and has a larger ecosystem and community. It is widely used and well-documented, which can be advantageous for finding resources and support. Fastify, while newer, has a growing community and is becoming increasingly popular for high-performance applications.
+- Zod: Zod is used for schema validation of request payloads, ensuring that the input data adheres to the expected format and types.
